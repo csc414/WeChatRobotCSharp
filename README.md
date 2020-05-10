@@ -1,7 +1,7 @@
 # WeChatRobotCSharp
 C# 版 微信PC WeChatRobot   
 使用 C# 实现注入鬼手的 [WeChatHelper.dll](https://github.com/TonyChen56/WeChatRobot) , 通过 `WM_COPYDATA` 消息跟 [WeChatHelper.dll](https://github.com/TonyChen56/WeChatRobot) 进行通讯。  
-只实现了基础聊天功能, 需要别的功能请自行Fork实现, 这里只是作为一个C#的Demo, 上图。   
+只实现了基础聊天功能, 需要别的功能请自行参考C++版实现, 这里只是作为一个C#的Demo, 上图。   
 ![Screenshot](https://github.com/csc414/WeChatRobotCSharp/blob/master/Images/1.png)
 ![Screenshot](https://github.com/csc414/WeChatRobotCSharp/blob/master/Images/2.png)
 ![Screenshot](https://github.com/csc414/WeChatRobotCSharp/blob/master/Images/3.png)
