@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeChatRobotCSharp", "WeChatRobotCSharp\WeChatRobotCSharp.csproj", "{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{197EA677-1C59-4E64-94BE-1A9360896C11}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Debug|x64.ActiveCfg = Debug|x86
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Debug|x64.Build.0 = Debug|x86
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Debug|x86.ActiveCfg = Debug|x86
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Debug|x86.Build.0 = Debug|x86
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Release|Any CPU.ActiveCfg = Release|x86
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Release|x64.ActiveCfg = Release|x86
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Release|x86.ActiveCfg = Release|x86
+		{1B0C9A3E-B00F-4D06-8A01-3E4BD301F9A9}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48716D46-8C10-467F-8B38-1C300358E076}
+	EndGlobalSection
+EndGlobal
