@@ -64,7 +64,7 @@ namespace WeChatRobotCSharp
                     if (message.type == "文字" && message.source == "好友消息" && (_autoChat || (_autoChatFileHelper && message.wxid == "filehelper")))
                     {
 #pragma warning disable CS4014 // 由于此调用不会等待，因此在调用完成前将继续执行当前方法
-                        _chatRobot.QingYunKeAutoReply(message.wxid, message.content);
+                        _chatRobot.TencentAiAutoReply(message.wxid, message.content);
 #pragma warning restore CS4014 // 由于此调用不会等待，因此在调用完成前将继续执行当前方法
                     }
                 }
