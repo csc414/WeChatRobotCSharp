@@ -76,6 +76,12 @@ namespace WeChatRobotCSharp
 
         public const int WM_ShowMessage = WM_USER + 101;
 
+        /// <summary>
+        /// 给 WechatHelper.dll 发送消息
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="data"></param>
+        /// <param name="size"></param>
         public static void SendWechatHelper(int msg, IntPtr data = default, int size = 0)
         {
             var hwnd = FindWindow(null, "WeChatHelper");
@@ -84,6 +90,23 @@ namespace WeChatRobotCSharp
             copyDataStruct.cbData = size;
             copyDataStruct.lpData = data;
             SendMessage(hwnd, WM_COPYDATA, 0, ref copyDataStruct);
+        }
+
+        /// <summary>
+        /// 发送微信文本消息
+        /// </summary>
+        /// <param name="wxid"></param>
+        /// <param name="content"></param>
+        public static void SendWechatMessage(string wxid, string content)
+        {
+            int size = Marshal.SizeOf<SendMessageInfo>();
+            IntPtr pAddress = Marshal.AllocHGlobal(size);
+            var message = new SendMessageInfo();
+            message.wxid = wxid;
+            message.content = content;
+            Marshal.StructureToPtr(message, pAddress, false);
+            SendWechatHelper(WM_SendTextMessage, pAddress, size);
+            Marshal.FreeHGlobal(pAddress);
         }
     }
 }

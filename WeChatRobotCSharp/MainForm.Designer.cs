@@ -33,30 +33,33 @@
             this.menu_wechat = new System.Windows.Forms.MenuStrip();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItem_logout = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem_saveContact = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage_friends = new System.Windows.Forms.TabPage();
-            this.tabPage_messages = new System.Windows.Forms.TabPage();
             this.dgv_friends = new System.Windows.Forms.DataGridView();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserNickName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage_messages = new System.Windows.Forms.TabPage();
             this.dgv_messages = new System.Windows.Forms.DataGridView();
-            this.contextMenu_dgv_friends = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuItem_sendMessage = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem_saveContact = new System.Windows.Forms.ToolStripMenuItem();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Source = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Wxid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MsgSender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenu_dgv_friends = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuItem_sendMessage = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu_dgv_messages = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItem_replyMessage = new System.Windows.Forms.ToolStripMenuItem();
+            this.全自动功能ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem_autoChat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem_autoChatFileHelper = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_wechat.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage_friends.SuspendLayout();
-            this.tabPage_messages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_friends)).BeginInit();
+            this.tabPage_messages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_messages)).BeginInit();
             this.contextMenu_dgv_friends.SuspendLayout();
             this.contextMenu_dgv_messages.SuspendLayout();
@@ -65,7 +68,8 @@
             // menu_wechat
             // 
             this.menu_wechat.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.设置ToolStripMenuItem});
+            this.设置ToolStripMenuItem,
+            this.全自动功能ToolStripMenuItem});
             this.menu_wechat.Location = new System.Drawing.Point(0, 0);
             this.menu_wechat.Name = "menu_wechat";
             this.menu_wechat.Size = new System.Drawing.Size(956, 25);
@@ -88,6 +92,13 @@
             this.menuItem_logout.Text = "退出微信";
             this.menuItem_logout.Click += new System.EventHandler(this.menuItem_logout_Click);
             // 
+            // menuItem_saveContact
+            // 
+            this.menuItem_saveContact.Name = "menuItem_saveContact";
+            this.menuItem_saveContact.Size = new System.Drawing.Size(180, 22);
+            this.menuItem_saveContact.Text = "保存联系人";
+            this.menuItem_saveContact.Click += new System.EventHandler(this.menuItem_saveContact_Click);
+            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage_friends);
@@ -109,17 +120,6 @@
             this.tabPage_friends.TabIndex = 0;
             this.tabPage_friends.Text = "好友列表";
             this.tabPage_friends.UseVisualStyleBackColor = true;
-            // 
-            // tabPage_messages
-            // 
-            this.tabPage_messages.Controls.Add(this.dgv_messages);
-            this.tabPage_messages.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_messages.Name = "tabPage_messages";
-            this.tabPage_messages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_messages.Size = new System.Drawing.Size(948, 523);
-            this.tabPage_messages.TabIndex = 1;
-            this.tabPage_messages.Text = "聊天记录";
-            this.tabPage_messages.UseVisualStyleBackColor = true;
             // 
             // dgv_friends
             // 
@@ -175,6 +175,17 @@
             this.UserRemark.Name = "UserRemark";
             this.UserRemark.ReadOnly = true;
             // 
+            // tabPage_messages
+            // 
+            this.tabPage_messages.Controls.Add(this.dgv_messages);
+            this.tabPage_messages.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_messages.Name = "tabPage_messages";
+            this.tabPage_messages.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_messages.Size = new System.Drawing.Size(948, 523);
+            this.tabPage_messages.TabIndex = 1;
+            this.tabPage_messages.Text = "聊天记录";
+            this.tabPage_messages.UseVisualStyleBackColor = true;
+            // 
             // dgv_messages
             // 
             this.dgv_messages.AllowUserToAddRows = false;
@@ -201,27 +212,6 @@
             this.dgv_messages.Size = new System.Drawing.Size(942, 517);
             this.dgv_messages.TabIndex = 3;
             this.dgv_messages.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_messages_CellMouseClick);
-            // 
-            // contextMenu_dgv_friends
-            // 
-            this.contextMenu_dgv_friends.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItem_sendMessage});
-            this.contextMenu_dgv_friends.Name = "contextMenu_dgv_friends";
-            this.contextMenu_dgv_friends.Size = new System.Drawing.Size(125, 26);
-            // 
-            // menuItem_sendMessage
-            // 
-            this.menuItem_sendMessage.Name = "menuItem_sendMessage";
-            this.menuItem_sendMessage.Size = new System.Drawing.Size(124, 22);
-            this.menuItem_sendMessage.Text = "发送消息";
-            this.menuItem_sendMessage.Click += new System.EventHandler(this.menuItem_sendMessage_Click);
-            // 
-            // menuItem_saveContact
-            // 
-            this.menuItem_saveContact.Name = "menuItem_saveContact";
-            this.menuItem_saveContact.Size = new System.Drawing.Size(180, 22);
-            this.menuItem_saveContact.Text = "保存联系人";
-            this.menuItem_saveContact.Click += new System.EventHandler(this.menuItem_saveContact_Click);
             // 
             // Type
             // 
@@ -275,6 +265,20 @@
             this.Content.ReadOnly = true;
             this.Content.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // contextMenu_dgv_friends
+            // 
+            this.contextMenu_dgv_friends.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItem_sendMessage});
+            this.contextMenu_dgv_friends.Name = "contextMenu_dgv_friends";
+            this.contextMenu_dgv_friends.Size = new System.Drawing.Size(125, 26);
+            // 
+            // menuItem_sendMessage
+            // 
+            this.menuItem_sendMessage.Name = "menuItem_sendMessage";
+            this.menuItem_sendMessage.Size = new System.Drawing.Size(124, 22);
+            this.menuItem_sendMessage.Text = "发送消息";
+            this.menuItem_sendMessage.Click += new System.EventHandler(this.menuItem_sendMessage_Click);
+            // 
             // contextMenu_dgv_messages
             // 
             this.contextMenu_dgv_messages.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -288,6 +292,31 @@
             this.menuItem_replyMessage.Size = new System.Drawing.Size(124, 22);
             this.menuItem_replyMessage.Text = "回复消息";
             this.menuItem_replyMessage.Click += new System.EventHandler(this.menuItem_replyMessage_Click);
+            // 
+            // 全自动功能ToolStripMenuItem
+            // 
+            this.全自动功能ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItem_autoChat,
+            this.menuItem_autoChatFileHelper});
+            this.全自动功能ToolStripMenuItem.Name = "全自动功能ToolStripMenuItem";
+            this.全自动功能ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.全自动功能ToolStripMenuItem.Text = "全自动功能";
+            // 
+            // menuItem_autoChat
+            // 
+            this.menuItem_autoChat.CheckOnClick = true;
+            this.menuItem_autoChat.Name = "menuItem_autoChat";
+            this.menuItem_autoChat.Size = new System.Drawing.Size(204, 22);
+            this.menuItem_autoChat.Text = "自动聊天(所有人)";
+            this.menuItem_autoChat.CheckedChanged += new System.EventHandler(this.menuItem_autoChat_CheckedChanged);
+            // 
+            // menuItem_autoChatFileHelper
+            // 
+            this.menuItem_autoChatFileHelper.CheckOnClick = true;
+            this.menuItem_autoChatFileHelper.Name = "menuItem_autoChatFileHelper";
+            this.menuItem_autoChatFileHelper.Size = new System.Drawing.Size(204, 22);
+            this.menuItem_autoChatFileHelper.Text = "自动聊天(文件传输助手)";
+            this.menuItem_autoChatFileHelper.CheckedChanged += new System.EventHandler(this.menuItem_autoChatFileHelper_CheckedChanged);
             // 
             // MainForm
             // 
@@ -307,8 +336,8 @@
             this.menu_wechat.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPage_friends.ResumeLayout(false);
-            this.tabPage_messages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_friends)).EndInit();
+            this.tabPage_messages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_messages)).EndInit();
             this.contextMenu_dgv_friends.ResumeLayout(false);
             this.contextMenu_dgv_messages.ResumeLayout(false);
@@ -341,6 +370,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Content;
         private System.Windows.Forms.ContextMenuStrip contextMenu_dgv_messages;
         private System.Windows.Forms.ToolStripMenuItem menuItem_replyMessage;
+        private System.Windows.Forms.ToolStripMenuItem 全自动功能ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuItem_autoChat;
+        private System.Windows.Forms.ToolStripMenuItem menuItem_autoChatFileHelper;
     }
 }
 

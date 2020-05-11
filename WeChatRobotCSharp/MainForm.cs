@@ -20,9 +20,16 @@ namespace WeChatRobotCSharp
 
         private DataTable _messages;
 
+        private ChatRobot _chatRobot;
+
+        private bool _autoChat;
+
+        private bool _autoChatFileHelper;
+
         public MainForm()
         {
             InitializeComponent();
+            _chatRobot = new ChatRobot();
             _userInfos = new DataTable();
             _userInfos.Columns.Add("UserId", typeof(string));
             _userInfos.Columns.Add("UserNumber", typeof(string));
@@ -54,7 +61,12 @@ namespace WeChatRobotCSharp
                     var message = Marshal.PtrToStructure<MessageInfo>(copyDataStruct.lpData);
                     _messages.Rows.Add(message.type, message.source, message.wxid, message.msgSender, message.content, DateTime.Now);
                     tabControl.SelectedTab = tabPage_messages;
-                    SystemSounds.Hand.Play();
+                    if(_autoChat || (_autoChatFileHelper && message.wxid == "filehelper"))
+                    {
+#pragma warning disable CS4014 // 由于此调用不会等待，因此在调用完成前将继续执行当前方法
+                        _chatRobot.QingYunKeAutoReply(message.wxid, message.content);
+#pragma warning restore CS4014 // 由于此调用不会等待，因此在调用完成前将继续执行当前方法
+                    }
                 }
             }
 
@@ -178,6 +190,20 @@ namespace WeChatRobotCSharp
             saveDialog.FileName = "微信联系人.csv";
             if(saveDialog.ShowDialog() == DialogResult.OK)
                 File.WriteAllLines(saveDialog.FileName, lines, Encoding.GetEncoding("GBK"));
+        }
+
+        private void menuItem_autoChat_CheckedChanged(object sender, EventArgs e)
+        {
+            _autoChat = menuItem_autoChat.Checked;
+            if (_autoChat && _autoChatFileHelper)
+                menuItem_autoChatFileHelper.Checked = false;
+        }
+
+        private void menuItem_autoChatFileHelper_CheckedChanged(object sender, EventArgs e)
+        {
+            _autoChatFileHelper = menuItem_autoChatFileHelper.Checked;
+            if(_autoChatFileHelper && _autoChat)
+                menuItem_autoChat.Checked = false;
         }
     }
 }

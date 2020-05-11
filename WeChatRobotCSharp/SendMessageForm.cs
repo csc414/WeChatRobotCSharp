@@ -37,15 +37,9 @@ namespace WeChatRobotCSharp
                 return;
             }
 
-            int size = Marshal.SizeOf<SendMessageInfo>();
-            IntPtr pAddress = Marshal.AllocHGlobal(size);
-            var message = new SendMessageInfo();
-            message.wxid = _wxid;
-            message.content = tb_content.Text;
-            Marshal.StructureToPtr(message, pAddress, false);
-            SendWechatHelper(WM_SendTextMessage, pAddress, size);
-            Marshal.FreeHGlobal(pAddress);
+            SendWechatMessage(_wxid, tb_content.Text);
             tb_content.Text = string.Empty;
+            tb_content.Focus();
         }
     }
 }
