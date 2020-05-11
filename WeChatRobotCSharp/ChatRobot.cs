@@ -143,7 +143,8 @@ namespace WeChatRobotCSharp
             dictParams["time_stamp"] = GetTimestamp();
             dictParams = dictParams.OrderBy(o => o.Key).ToDictionary(o => o.Key, o => o.Value);
             var queryString = GetReqSign(dictParams, "7fdynIQuqigHPsnx");
-            var response = await _http.GetAsync($"https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat?{queryString}");
+            var formData = new StringContent(queryString, Encoding.UTF8, "application/x-www-form-urlencoded");
+            var response = await _http.PostAsync($"https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat", formData);
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadAsStringAsync();
