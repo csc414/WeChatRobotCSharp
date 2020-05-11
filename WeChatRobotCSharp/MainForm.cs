@@ -61,7 +61,7 @@ namespace WeChatRobotCSharp
                     var message = Marshal.PtrToStructure<MessageInfo>(copyDataStruct.lpData);
                     _messages.Rows.Add(message.type, message.source, message.wxid, message.msgSender, message.content, DateTime.Now);
                     tabControl.SelectedTab = tabPage_messages;
-                    if (message.source == "好友消息" && (_autoChat || (_autoChatFileHelper && message.wxid == "filehelper")))
+                    if (message.type == "文字" && message.source == "好友消息" && (_autoChat || (_autoChatFileHelper && message.wxid == "filehelper")))
                     {
 #pragma warning disable CS4014 // 由于此调用不会等待，因此在调用完成前将继续执行当前方法
                         _chatRobot.QingYunKeAutoReply(message.wxid, message.content);
